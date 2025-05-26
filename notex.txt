@@ -1,0 +1,151 @@
+import React from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
+
+export default function JobCard({ jobTitle, companyName, location, techStack, referredBy, date, onViewJob }) {
+  return (
+    <View style={styles.cardContainer}>
+      <View style={styles.badge}>
+        <Text style={styles.badgeText}>{companyName}</Text>
+      </View>
+      
+      <View style={styles.cardContent}>
+        <View style={styles.titleContainer}>
+          <Text style={styles.jobTitle}>{jobTitle}</Text>
+          <TouchableOpacity style={styles.viewButton} onPress={onViewJob}>
+            <Text style={styles.viewButtonText}>View →</Text>
+          </TouchableOpacity>
+        </View>
+        
+        <View style={styles.locationContainer}>
+          <Text style={styles.locationText}>{location}</Text>
+        </View>
+
+        <Text style={styles.techStack}>{techStack}</Text>
+
+        <View style={styles.referredByContainer}>
+          <Text style={styles.referredText}>Referred by:</Text>
+          <Text style={styles.referredName}>{referredBy}</Text>
+        </View>
+
+        <View style={styles.footer}>
+          <Text style={styles.dateText}>{date}</Text>
+          <Text style={styles.jobTitleFooter}>{jobTitle}</Text>
+          <View style={styles.iconContainer}>
+            <TouchableOpacity style={styles.chatButton}>
+              <Text style={styles.chatButtonText}>Chat</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  cardContainer: {
+    width: '100%',
+    backgroundColor: 'white',
+    borderRadius: 15,
+    borderWidth: 1,
+    borderColor: '#ddd',
+    marginBottom: 16,
+    padding: 16,
+  },
+  badge: {
+    position: 'absolute',
+    top: -10,
+    left: 16,
+    backgroundColor: '#f1f1f1',
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 20,
+    shadowColor: 'rgba(0, 0, 0, 0.1)',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
+  },
+  badgeText: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    color: '#d32f2f',
+  },
+  cardContent: {
+    marginTop: 16,
+  },
+  titleContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  jobTitle: {
+    fontSize: 18,
+    fontWeight: '600',
+  },
+  viewButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  viewButtonText: {
+    fontSize: 14,
+    color: '#1976d2',
+    fontWeight: '600',
+  },
+  locationContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 8,
+  },
+  locationText: {
+    fontSize: 14,
+    color: '#757575',
+  },
+  techStack: {
+    fontSize: 14,
+    color: '#757575',
+    marginTop: 8,
+    flexWrap: 'wrap',
+  },
+  referredByContainer: {
+    flexDirection: 'row',
+    marginTop: 8,
+  },
+  referredText: {
+    fontSize: 14,
+    color: '#388e3c',
+  },
+  referredName: {
+    fontSize: 14,
+    fontWeight: 'bold',
+  },
+  footer: {
+    marginTop: 16,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  dateText: {
+    fontSize: 12,
+    color: '#9e9e9e',
+  },
+  jobTitleFooter: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    color: '#212121',
+    maxWidth: 120,
+    textOverflow: 'ellipsis',
+  },
+  iconContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  chatButton: {
+    paddingVertical: 4,
+    paddingHorizontal: 8,
+    backgroundColor: '#1976d2',
+    borderRadius: 20,
+  },
+  chatButtonText: {
+    fontSize: 12,
+    color: 'white',
+    fontWeight: '600',
+  },
+});
